@@ -1,0 +1,6 @@
+@article{REPO269,
+    author = "Shang, Chenzhan and Hou, Yupeng and Zhao, Wayne Xin and Li, Yaliang and Zhang, Jing",
+    journal = "AI Open 2023",
+    title = "{Multi-grained Hypergraph Interest Modeling for Conversational Recommendation}",
+    year = "2023"
+}
