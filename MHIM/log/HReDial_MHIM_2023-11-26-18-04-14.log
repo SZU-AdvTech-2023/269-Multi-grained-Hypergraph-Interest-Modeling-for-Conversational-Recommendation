@@ -1,0 +1,181 @@
+2023-11-26 18:04:14.693 | INFO     | crslab.config.config:__init__:87 - [Dataset: HReDial tokenized in nltk]
+2023-11-26 18:04:14.694 | INFO     | crslab.config.config:__init__:89 - [Model: MHIM]
+2023-11-26 18:04:14.694 | INFO     | crslab.config.config:__init__:96 - [Config]
+{
+    "dataset": "HReDial",
+    "tokenize": "nltk",
+    "related_truncate": 1024,
+    "context_truncate": 256,
+    "response_truncate": 30,
+    "scale": 1,
+    "model": "MHIM",
+    "token_emb_dim": 300,
+    "kg_emb_dim": 128,
+    "num_bases": 8,
+    "n_heads": 2,
+    "n_layers": 2,
+    "ffn_size": 300,
+    "dropout": 0.1,
+    "attention_dropout": 0.0,
+    "relu_dropout": 0.1,
+    "learn_positional_embeddings": false,
+    "embeddings_scale": true,
+    "reduction": false,
+    "n_positions": 1024,
+    "user_proj_dim": 512,
+    "mha_n_heads": 4,
+    "pooling": "Mean",
+    "extension_strategy": "Adaptive",
+    "rec": {
+        "epoch": 100,
+        "batch_size": 256,
+        "early_stop": true,
+        "stop_mode": "min",
+        "impatience": 2,
+        "optimizer": {
+            "name": "Adam",
+            "lr": 0.001
+        }
+    },
+    "conv": {
+        "epoch": 5,
+        "batch_size": 128,
+        "impatience": 1,
+        "optimizer": {
+            "name": "Adam",
+            "lr": 0.001
+        },
+        "lr_scheduler": {
+            "name": "ReduceLROnPlateau",
+            "patience": 3,
+            "factor": 0.5
+        },
+        "gradient_clip": 0.1
+    },
+    "pretrain": true,
+    "pretrain_epoch": 10,
+    "gpu": [
+        0
+    ],
+    "model_name": "MHIM"
+}
+2023-11-26 18:04:50.757 | INFO     | crslab.data.dataset.hredial.hredial:_load_raw_data:104 - [Load train data from /data/xiaoyin/MHIM-main/MHIM/data/dataset/hredial/nltk/train_data.json]
+2023-11-26 18:04:52.109 | INFO     | crslab.data.dataset.hredial.hredial:_load_raw_data:107 - [Load valid data from /data/xiaoyin/MHIM-main/MHIM/data/dataset/hredial/nltk/valid_data.json]
+2023-11-26 18:05:00.612 | INFO     | crslab.data.dataset.hredial.hredial:_load_raw_data:110 - [Load test data from /data/xiaoyin/MHIM-main/MHIM/data/dataset/hredial/nltk/test_data.json]
+2023-11-26 18:05:00.624 | INFO     | crslab.data.dataset.hredial.hredial:_load_vocab:118 - [Load vocab from /data/xiaoyin/MHIM-main/MHIM/data/dataset/hredial/nltk/token2id.json]
+2023-11-26 18:05:00.624 | INFO     | crslab.data.dataset.hredial.hredial:_load_vocab:119 - [The size of token2index dictionary is 27297]
+2023-11-26 18:05:00.624 | INFO     | crslab.data.dataset.hredial.hredial:_load_vocab:120 - [The size of index2token dictionary is 27297]
+2023-11-26 18:05:00.703 | INFO     | crslab.data.dataset.hredial.hredial:_load_other_data:131 - [Load entity dictionary and KG from /data/xiaoyin/MHIM-main/MHIM/data/dataset/hredial/nltk/entity2id.json and /data/xiaoyin/MHIM-main/MHIM/data/dataset/hredial/nltk/dbpedia_subkg.json]
+2023-11-26 18:05:00.703 | INFO     | crslab.data.dataset.base:__init__:49 - [Finish data load]
+2023-11-26 18:05:34.741 | INFO     | crslab.data.dataset.hredial.hredial:_data_preprocess:176 - [Finish side data process]
+2023-11-26 18:05:34.741 | INFO     | crslab.data.dataset.base:__init__:57 - [Finish data preprocess]
+2023-11-26 18:05:37.602 | INFO     | crslab.model.crs.mhim.mhim:build_model:152 - [Load Pretrain Weights from pretrain/HReDial/10-epoch.pth]
+2023-11-26 18:05:37.949 | INFO     | crslab.model.crs.mhim.mhim:_build_adjacent_matrix:233 - [Adjacent Matrix built.]
+2023-11-26 18:05:39.121 | INFO     | crslab.model:get_model:27 - [Build model MHIM]
+2023-11-26 18:05:39.160 | INFO     | crslab.evaluator:get_evaluator:25 - [Build evaluator standard]
+2023-11-26 18:05:39.160 | INFO     | crslab.system:get_system:32 - [Build system MHIM]
+2023-11-26 18:05:39.395 | INFO     | crslab.system.base:build_optimizer:138 - [Build optimizer: Adam]
+2023-11-26 18:05:39.395 | INFO     | crslab.system.mhim:train_recommender:117 - [Recommendation epoch 0]
+2023-11-26 18:05:39.396 | INFO     | crslab.system.mhim:train_recommender:118 - [Train]
+2023-11-26 18:24:08.512 | INFO     | crslab.evaluator.standard:report:62 - 
+    grad norm  rec_loss
+        7.932     7.506
+2023-11-26 18:24:08.528 | INFO     | crslab.system.mhim:train_recommender:123 - [Valid]
+2023-11-26 18:26:43.785 | INFO     | crslab.evaluator.standard:report:62 - 
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .03048   .1846   .3672 .03048  .06895  .07764  .03048   .09588    .1363     7.271
+2023-11-26 18:26:43.785 | INFO     | crslab.system.base:early_stop:249 - [Get new best model]
+2023-11-26 18:26:43.786 | INFO     | crslab.system.mhim:train_recommender:117 - [Recommendation epoch 1]
+2023-11-26 18:26:43.786 | INFO     | crslab.system.mhim:train_recommender:118 - [Train]
+2023-11-26 18:59:32.245 | INFO     | crslab.evaluator.standard:report:62 - 
+    grad norm  rec_loss
+        6.373     6.314
+2023-11-26 18:59:32.245 | INFO     | crslab.system.mhim:train_recommender:123 - [Valid]
+2023-11-26 19:02:07.219 | INFO     | crslab.evaluator.standard:report:62 - 
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .03338   .2026   .4096 .03338  .07609  .08586  .03338    .1056    .1512     7.092
+2023-11-26 19:02:07.219 | INFO     | crslab.system.base:early_stop:249 - [Get new best model]
+2023-11-26 19:02:07.219 | INFO     | crslab.system.mhim:train_recommender:117 - [Recommendation epoch 2]
+2023-11-26 19:02:07.219 | INFO     | crslab.system.mhim:train_recommender:118 - [Train]
+2023-11-26 19:34:50.593 | INFO     | crslab.evaluator.standard:report:62 - 
+    grad norm  rec_loss
+        6.282      5.86
+2023-11-26 19:34:50.594 | INFO     | crslab.system.mhim:train_recommender:123 - [Valid]
+2023-11-26 19:37:25.109 | INFO     | crslab.evaluator.standard:report:62 - 
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .03367   .2151   .4238 .03367  .07748  .08745  .03367    .1094    .1556      7.07
+2023-11-26 19:37:25.110 | INFO     | crslab.system.base:early_stop:249 - [Get new best model]
+2023-11-26 19:37:25.110 | INFO     | crslab.system.mhim:train_recommender:117 - [Recommendation epoch 3]
+2023-11-26 19:37:25.110 | INFO     | crslab.system.mhim:train_recommender:118 - [Train]
+2023-11-26 20:09:45.179 | INFO     | crslab.evaluator.standard:report:62 - 
+    grad norm  rec_loss
+         6.27      5.54
+2023-11-26 20:09:45.196 | INFO     | crslab.system.mhim:train_recommender:123 - [Valid]
+2023-11-26 20:12:19.594 | INFO     | crslab.evaluator.standard:report:62 - 
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .03251   .2206   .4267 .03251  .07843  .08831  .03251    .1115    .1572     7.127
+2023-11-26 20:12:19.594 | INFO     | crslab.system.mhim:train_recommender:117 - [Recommendation epoch 4]
+2023-11-26 20:12:19.595 | INFO     | crslab.system.mhim:train_recommender:118 - [Train]
+2023-11-26 20:44:57.093 | INFO     | crslab.evaluator.standard:report:62 - 
+    grad norm  rec_loss
+        6.217     5.298
+2023-11-26 20:44:57.094 | INFO     | crslab.system.mhim:train_recommender:123 - [Valid]
+2023-11-26 20:47:33.050 | INFO     | crslab.evaluator.standard:report:62 - 
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .03251   .2142   .4302 .03251  .07899  .08926  .03251    .1105    .1583     7.248
+2023-11-26 20:47:33.051 | INFO     | crslab.system.base:early_stop:254 - [Early stop]
+2023-11-26 20:47:33.051 | INFO     | crslab.system.mhim:train_recommender:134 - [Test]
+2023-11-26 20:50:42.811 | INFO     | crslab.evaluator.standard:report:62 - 
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .02799   .2001   .3865 .02799  .07127  .08022  .02799    .1013    .1426     7.284
+2023-11-26 20:50:42.812 | INFO     | crslab.system.base:build_optimizer:138 - [Build optimizer: Adam]
+2023-11-26 20:50:42.813 | INFO     | crslab.system.base:build_lr_scheduler:155 - [Build scheduler ReduceLROnPlateau]
+2023-11-26 20:50:42.813 | INFO     | crslab.system.mhim:train_conversation:151 - [Conversation epoch 0]
+2023-11-26 20:50:42.813 | INFO     | crslab.system.mhim:train_conversation:152 - [Train]
+2023-11-26 22:02:07.124 | INFO     | crslab.evaluator.standard:report:62 - 
+    gen_loss  grad clip ratio  grad norm  ppl
+       4.409                1      5.014 82.2
+2023-11-26 22:02:07.166 | INFO     | crslab.system.mhim:train_conversation:157 - [Valid]
+2023-11-26 22:09:22.649 | INFO     | crslab.evaluator.standard:report:62 - 
+    bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4    f1  gen_loss   ppl
+     .2723  .06496  .02747   .0155  .06821   .9349   3.729   7.085 .3490     3.881 48.49
+2023-11-26 22:09:22.655 | INFO     | crslab.system.mhim:train_conversation:151 - [Conversation epoch 1]
+2023-11-26 22:09:22.655 | INFO     | crslab.system.mhim:train_conversation:152 - [Train]
+2023-11-26 23:20:33.930 | INFO     | crslab.evaluator.standard:report:62 - 
+    gen_loss  grad clip ratio  grad norm  ppl
+       3.488                1      2.737 32.7
+2023-11-26 23:20:33.931 | INFO     | crslab.system.mhim:train_conversation:157 - [Valid]
+2023-11-26 23:27:39.446 | INFO     | crslab.evaluator.standard:report:62 - 
+    bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4    f1  gen_loss   ppl
+     .2827  .07011  .02707  .01537   .1329   1.405   4.656   8.183 .3554     3.676 39.48
+2023-11-26 23:27:39.453 | INFO     | crslab.system.mhim:train_conversation:151 - [Conversation epoch 2]
+2023-11-26 23:27:39.454 | INFO     | crslab.system.mhim:train_conversation:152 - [Train]
+2023-11-27 00:39:11.928 | INFO     | crslab.evaluator.standard:report:62 - 
+    gen_loss  grad clip ratio  grad norm   ppl
+       3.162                1      2.376 23.61
+2023-11-27 00:39:11.929 | INFO     | crslab.system.mhim:train_conversation:157 - [Valid]
+2023-11-27 00:46:04.160 | INFO     | crslab.evaluator.standard:report:62 - 
+    bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4    f1  gen_loss   ppl
+     .2852  .07392  .02984  .01714   .2347   1.892   5.406   8.736 .3581     3.635 37.88
+2023-11-27 00:46:04.166 | INFO     | crslab.system.mhim:train_conversation:151 - [Conversation epoch 3]
+2023-11-27 00:46:04.166 | INFO     | crslab.system.mhim:train_conversation:152 - [Train]
+2023-11-27 01:53:22.115 | INFO     | crslab.evaluator.standard:report:62 - 
+    gen_loss  grad clip ratio  grad norm   ppl
+        2.93                1      2.207 18.73
+2023-11-27 01:53:22.115 | INFO     | crslab.system.mhim:train_conversation:157 - [Valid]
+2023-11-27 02:00:13.497 | INFO     | crslab.evaluator.standard:report:62 - 
+    bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4    f1  gen_loss   ppl
+     .2898  .07802   .0329  .01885   .2719    2.06   5.792   9.459 .3549     3.649 38.44
+2023-11-27 02:00:13.504 | INFO     | crslab.system.mhim:train_conversation:151 - [Conversation epoch 4]
+2023-11-27 02:00:13.504 | INFO     | crslab.system.mhim:train_conversation:152 - [Train]
+2023-11-27 03:08:27.815 | INFO     | crslab.evaluator.standard:report:62 - 
+    gen_loss  grad clip ratio  grad norm   ppl
+       2.762                1      2.125 15.84
+2023-11-27 03:08:27.816 | INFO     | crslab.system.mhim:train_conversation:157 - [Valid]
+2023-11-27 03:15:21.913 | INFO     | crslab.evaluator.standard:report:62 - 
+    bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4    f1  gen_loss   ppl
+     .2886  .07992  .03221  .01793   .3316   2.364    5.93    8.88 .3573     3.647 38.37
+2023-11-27 03:15:21.914 | INFO     | crslab.system.mhim:train_conversation:168 - [Test]
+2023-11-27 03:24:01.353 | INFO     | crslab.evaluator.standard:report:62 - 
+    bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4    f1
+     .1737  .03468  .01379 .008316   .1503   .5349   1.052   1.648 .2326

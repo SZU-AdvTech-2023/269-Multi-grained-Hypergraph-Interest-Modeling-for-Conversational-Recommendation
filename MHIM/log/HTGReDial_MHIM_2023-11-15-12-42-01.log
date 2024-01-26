@@ -1,0 +1,71 @@
+2023-11-15 12:42:01.295 | INFO     | crslab.config.config:__init__:87 - [Dataset: HTGReDial tokenized in pkuseg]
+2023-11-15 12:42:01.296 | INFO     | crslab.config.config:__init__:89 - [Model: MHIM]
+2023-11-15 12:42:01.296 | INFO     | crslab.config.config:__init__:96 - [Config]
+{
+    "dataset": "HTGReDial",
+    "tokenize": "pkuseg",
+    "related_truncate": 1024,
+    "context_truncate": 256,
+    "response_truncate": 30,
+    "scale": 1,
+    "model": "MHIM",
+    "token_emb_dim": 300,
+    "kg_emb_dim": 128,
+    "num_bases": 8,
+    "n_heads": 2,
+    "n_layers": 2,
+    "ffn_size": 300,
+    "dropout": 0.1,
+    "attention_dropout": 0.0,
+    "relu_dropout": 0.1,
+    "learn_positional_embeddings": false,
+    "embeddings_scale": true,
+    "reduction": false,
+    "n_positions": 1024,
+    "user_proj_dim": 512,
+    "mha_n_heads": 4,
+    "pooling": "Attn",
+    "extension_strategy": "Adaptive",
+    "rec": {
+        "epoch": 6,
+        "batch_size": 64,
+        "early_stop": true,
+        "stop_mode": "min",
+        "impatience": 2,
+        "optimizer": {
+            "name": "Adam",
+            "lr": 0.001
+        }
+    },
+    "conv": {
+        "epoch": 6,
+        "batch_size": 128,
+        "impatience": 1,
+        "optimizer": {
+            "name": "Adam",
+            "lr": 0.001
+        },
+        "lr_scheduler": {
+            "name": "ReduceLROnPlateau",
+            "patience": 3,
+            "factor": 0.5
+        },
+        "gradient_clip": 0.1
+    },
+    "pretrain": true,
+    "pretrain_epoch": 10,
+    "gpu": [
+        0
+    ],
+    "model_name": "MHIM"
+}
+2023-11-15 12:42:14.377 | INFO     | crslab.data.dataset.base:__init__:49 - [Finish data load]
+2023-11-15 12:56:03.005 | INFO     | crslab.data.dataset.base:__init__:57 - [Finish data preprocess]
+2023-11-15 12:56:04.703 | INFO     | crslab.model.crs.mhim.mhim:build_model:152 - [Load Pretrain Weights from pretrain/HTGReDial/10-epoch.pth]
+2023-11-15 12:57:42.291 | INFO     | crslab.model.crs.mhim.mhim:_build_adjacent_matrix:233 - [Adjacent Matrix built.]
+2023-11-15 12:57:44.809 | INFO     | crslab.model:get_model:27 - [Build model MHIM]
+2023-11-15 12:57:44.847 | INFO     | crslab.evaluator:get_evaluator:25 - [Build evaluator standard]
+2023-11-15 12:57:44.847 | INFO     | crslab.system:get_system:32 - [Build system MHIM]
+2023-11-15 12:57:45.032 | INFO     | crslab.system.base:build_optimizer:138 - [Build optimizer: Adam]
+2023-11-15 12:57:45.032 | INFO     | crslab.system.mhim:train_recommender:117 - [Recommendation epoch 0]
+2023-11-15 12:57:45.032 | INFO     | crslab.system.mhim:train_recommender:118 - [Train]

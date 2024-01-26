@@ -1,0 +1,170 @@
+2023-10-20 11:20:21.139 | INFO     | __main__:main:79 - {
+    "seed": 2022,
+    "gpu": 0,
+    "log_path": "log/redial.log",
+    "checkpoint_path": "save/redial",
+    "graph_path": "data/redial/data.bin",
+    "meta_path": "data/redial/embedding_meta_data.pkl",
+    "random_walk_hops": 128,
+    "restart_prob": 0.5,
+    "sample_num": 12288,
+    "emb_dim": 128,
+    "n_relation": 39,
+    "n_bases": 8,
+    "alpha": 0.999,
+    "queue_size": 16384,
+    "temperature": 0.07,
+    "use_softmax": true,
+    "batch_size": 1024,
+    "learning_rate": 0.005,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "weight_decay": 1e-05,
+    "epochs": 11,
+    "lr_decay_rate": 0.0,
+    "lr_decay_epochs": [
+        120,
+        160,
+        200
+    ],
+    "clip_norm": 1.0
+}
+2023-10-20 11:25:07.979 | INFO     | __main__:main:79 - {
+    "seed": 2022,
+    "gpu": 0,
+    "log_path": "log/redial.log",
+    "checkpoint_path": "save/redial",
+    "graph_path": "data_contrast/data/redial/data.bin",
+    "meta_path": "data_contrast/data/redial/embedding_meta_data.pkl",
+    "random_walk_hops": 128,
+    "restart_prob": 0.5,
+    "sample_num": 12288,
+    "emb_dim": 128,
+    "n_relation": 39,
+    "n_bases": 8,
+    "alpha": 0.999,
+    "queue_size": 16384,
+    "temperature": 0.07,
+    "use_softmax": true,
+    "batch_size": 1024,
+    "learning_rate": 0.005,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "weight_decay": 1e-05,
+    "epochs": 11,
+    "lr_decay_rate": 0.0,
+    "lr_decay_epochs": [
+        120,
+        160,
+        200
+    ],
+    "clip_norm": 1.0
+}
+2023-10-20 11:25:09.636 | INFO     | moco:__init__:21 - [Using queue shape: (16384), (128)]
+2023-10-20 13:14:05.012 | INFO     | __main__:main:79 - {
+    "seed": 2022,
+    "gpu": 0,
+    "log_path": "log/redial.log",
+    "checkpoint_path": "save/redial",
+    "graph_path": "data_contrast/data/redial/data.bin",
+    "meta_path": "data_contrast/data/redial/embedding_meta_data.pkl",
+    "random_walk_hops": 128,
+    "restart_prob": 0.5,
+    "sample_num": 12288,
+    "emb_dim": 128,
+    "n_relation": 39,
+    "n_bases": 8,
+    "alpha": 0.999,
+    "queue_size": 16384,
+    "temperature": 0.07,
+    "use_softmax": true,
+    "batch_size": 1024,
+    "learning_rate": 0.005,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "weight_decay": 1e-05,
+    "epochs": 11,
+    "lr_decay_rate": 0.0,
+    "lr_decay_epochs": [
+        120,
+        160,
+        200
+    ],
+    "clip_norm": 1.0
+}
+2023-10-20 13:14:07.266 | INFO     | moco:__init__:21 - [Using queue shape: (16384), (128)]
+2023-10-20 13:15:49.734 | INFO     | __main__:main:79 - {
+    "seed": 2022,
+    "gpu": 0,
+    "log_path": "log/redial.log",
+    "checkpoint_path": "save/redial",
+    "graph_path": "data_contrast/data/redial/data.bin",
+    "meta_path": "data_contrast/data/redial/embedding_meta_data.pkl",
+    "random_walk_hops": 128,
+    "restart_prob": 0.5,
+    "sample_num": 12288,
+    "emb_dim": 128,
+    "n_relation": 39,
+    "n_bases": 8,
+    "alpha": 0.999,
+    "queue_size": 16384,
+    "temperature": 0.07,
+    "use_softmax": true,
+    "batch_size": 1024,
+    "learning_rate": 0.005,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "weight_decay": 1e-05,
+    "epochs": 11,
+    "lr_decay_rate": 0.0,
+    "lr_decay_epochs": [
+        120,
+        160,
+        200
+    ],
+    "clip_norm": 1.0
+}
+2023-10-20 13:15:52.021 | INFO     | moco:__init__:21 - [Using queue shape: (16384), (128)]
+2023-10-20 13:21:20.533 | INFO     | __main__:main:144 - [Epoch 1 finished, total time 327.53, loss 5.120243]
+2023-10-20 13:26:30.343 | INFO     | __main__:main:79 - {
+    "seed": 2022,
+    "gpu": 0,
+    "log_path": "log/redial.log",
+    "checkpoint_path": "save/redial",
+    "graph_path": "data_contrast/data/redial/data.bin",
+    "meta_path": "data_contrast/data/redial/embedding_meta_data.pkl",
+    "random_walk_hops": 128,
+    "restart_prob": 0.5,
+    "sample_num": 12288,
+    "emb_dim": 128,
+    "n_relation": 39,
+    "n_bases": 8,
+    "alpha": 0.999,
+    "queue_size": 16384,
+    "temperature": 0.07,
+    "use_softmax": true,
+    "batch_size": 1024,
+    "learning_rate": 0.005,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "weight_decay": 1e-05,
+    "epochs": 11,
+    "lr_decay_rate": 0.0,
+    "lr_decay_epochs": [
+        120,
+        160,
+        200
+    ],
+    "clip_norm": 1.0
+}
+2023-10-20 13:26:32.618 | INFO     | moco:__init__:21 - [Using queue shape: (16384), (128)]
+2023-10-20 13:32:02.699 | INFO     | __main__:main:144 - [Epoch 1 finished, total time 329.10, loss 5.120243]
+2023-10-20 13:37:27.777 | INFO     | __main__:main:144 - [Epoch 2 finished, total time 325.03, loss 5.483656]
+2023-10-20 13:42:59.385 | INFO     | __main__:main:144 - [Epoch 3 finished, total time 331.56, loss 5.374777]
+2023-10-20 13:48:22.788 | INFO     | __main__:main:144 - [Epoch 4 finished, total time 323.36, loss 5.309863]
+2023-10-20 13:54:05.607 | INFO     | __main__:main:144 - [Epoch 5 finished, total time 342.77, loss 5.232833]
+2023-10-20 14:03:12.701 | INFO     | __main__:main:144 - [Epoch 6 finished, total time 547.04, loss 5.150576]
+2023-10-20 14:10:40.508 | INFO     | __main__:main:144 - [Epoch 7 finished, total time 447.76, loss 5.094573]
+2023-10-20 14:18:10.584 | INFO     | __main__:main:144 - [Epoch 8 finished, total time 450.03, loss 5.000726]
+2023-10-20 14:25:50.857 | INFO     | __main__:main:144 - [Epoch 9 finished, total time 460.23, loss 4.945181]
+2023-10-20 14:33:26.363 | INFO     | __main__:main:144 - [Epoch 10 finished, total time 455.46, loss 4.862652]
